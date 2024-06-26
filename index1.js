@@ -1,7 +1,7 @@
 const express = require('express')
 const banco = require("./TrabalhoNode")
-const professores = require("./professores")
-const alunos = require("./alunos")
+const professor = require("./professor")
+const aluno = require("./aluno")
 
 const app = express()
 app.use(express.json())
@@ -22,19 +22,19 @@ app.listen( PORTA, function(){
     console.log("Servidor iniciados na porta "+PORTA);
 })
 
-app.get("/professores/",async function(req, res) {
-    const resultado = await professores.professores.findAll()
+app.get("/professor/",async function(req, res) {
+    const resultado = await professor.professor.findAll()
     res.send(resultado);
 })
 
-app.get("/alunos/",async function(req, res) {
-    const resultado = await alunos.alunos.findAll()
+app.get("/aluno/",async function(req, res) {
+    const resultado = await aluno.aluno.findAll()
     res.send(resultado);
 })
 
-app.get("/professores/:id",async function(req, res) {
-    const professorSelecionado = await professores.professores.findByPk(req.params.id, 
-        { include: { model: alunos.alunos } } 
+app.get("/professor/:id",async function(req, res) {
+    const professorSelecionado = await professor.professor.findByPk(req.params.id, 
+        { include: { model: aluno.aluno } } 
     )
     if( professorSelecionado == null ){
         res.status(404).send({})
@@ -43,7 +43,7 @@ app.get("/professores/:id",async function(req, res) {
     } 
 })
 
-app.get("/alunos/:id",async function(req, res) {
+app.get("/aluno/:id",async function(req, res) {
     const alunoSelecionado = await alunos.alunos.findByPk(req.params.id,
         { include: {model: professores.professores } }
     )
@@ -52,4 +52,70 @@ app.get("/alunos/:id",async function(req, res) {
     }else{
         res.send(aluno);
     } 
+})
+
+app.post("/professor/",async function(req,res){
+    const resultado = await professor.professor.create({
+        nome:req.body.nome
+    })
+    res.send(resultado)
+})
+
+app.post("/aluno/",async function(req,res){
+    const resultado = await aluno.aluno.create({
+        nome:req.body.nome,
+        professorId:req.body.professorId
+    })
+    res.send(resultado)
+})
+
+app.put("/professor/:id",async function(req,res){
+    const resultado = await professor.professor.update({
+        nome:req.body.nome
+    },{
+        where:{id: req.params.id}
+    })
+    if( resultado == 0){
+        res.status(404).send({})
+    }else{
+        res.send( await professor.professor.findByPk(req.params.id))
+    }
+})
+
+app.put("/aluno/",async function(req,res){
+    const resultado = await aluno.aluno.update({
+        nome:req.body.nome,
+        professorId:req.body.professorId
+    })
+    if( resultado == 0){
+        res.status(404).send({})
+    }else{
+        res.send( await aluno.aluno.findByPk(req.params.id))
+    }
+})
+
+app.delete("/professor/:id",async function(req,res){
+    const resultado = await professor.professor.destroy({
+        where:{
+            id:req.params.id
+        }
+    })
+    if( resultado == 0 ){
+        res.status(404).send({})
+    }else{
+        res.status(204).send({})
+    }
+})
+
+app.delete("/aluno/:id",async function(req,res){
+    const resultado = await aluno.aluno.destroy({
+        where:{
+            id:req.params.id
+        }
+    })
+    if( resultado == 0 ){
+        res.status(404).send({})
+    }else{
+        res.status(204).send({})
+    }
 })
