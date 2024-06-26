@@ -26,4 +26,4 @@ var aluno = banco.conexao.define(
     { timestamps: false }
 )
 
-module.exports = {alunos}
+module.exports = {aluno}
