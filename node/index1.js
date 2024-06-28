@@ -67,6 +67,8 @@ app.post("/professor/",async function(req,res){
 app.post("/aluno/",async function(req,res){
     const resultado = await aluno.aluno.create({
         nome:req.body.nome,
+        idade:req.body.idade,
+        serie:req.body.serie,
         professorId:req.body.professorId
     })
     res.send(resultado)
