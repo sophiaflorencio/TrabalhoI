@@ -59,7 +59,9 @@ app.get("/aluno/:id",async function(req, res) {
 
 app.post("/professor/",async function(req,res){
     const resultado = await professor.professor.create({
-        nome:req.body.nome
+        nome:req.body.nome,
+        idade:req.body.idade,
+        formacao:req.body.formacao,
     })
     res.send(resultado)
 })
@@ -77,6 +79,7 @@ app.post("/aluno/",async function(req,res){
 app.put("/professor/:id",async function(req,res){
     const resultado = await professor.professor.update({
         nome:req.body.nome
+        
     },{
         where:{id: req.params.id}
     })
@@ -87,11 +90,17 @@ app.put("/professor/:id",async function(req,res){
     }
 })
 
-app.put("/aluno/",async function(req,res){
+app.put("/aluno/:id",async function(req,res){
     const resultado = await aluno.aluno.update({
         nome:req.body.nome,
+        idade:req.body.idade,
+        serie:req.body.serie,
         professorId:req.body.professorId
+    }, 
+    {
+        where:{id: req.params.id}
     })
+    
     if( resultado == 0){
         res.status(404).send({})
     }else{
