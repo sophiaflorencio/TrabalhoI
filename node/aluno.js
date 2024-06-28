@@ -1,6 +1,7 @@
 const sequelize = require("sequelize");
 const banco = require("./banco")
-const professor = require("../professor")
+const professor = require("./professor")
+
 const alunos = [
     {id: 1, nome: "Alessandra", idade: 17,  serie: "info22"}
 ]
