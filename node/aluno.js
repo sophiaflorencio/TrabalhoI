@@ -23,7 +23,7 @@ var aluno = banco.conexao.define(
             allowNull:false
         },
         serie:{
-            type:sequelize.INTEGER.UNSIGNED,
+            type:sequelize.STRING,
             allowNull:false
         }
     },
