@@ -56,6 +56,17 @@ app.get("/professor/nome/:nome",async function(req, res) {
     }
 })
 
+app.get("/aluno/nome/:nome",async function(req, res) {
+    const resultado = await aluno.aluno.findAll({
+        where:{ nome:req.params.nome }
+    })
+    if( resultado == null ){
+        res.status(404).send({})
+    }else{
+        res.send(resultado);
+    }
+})
+
 app.get("/aluno/:id",async function(req, res) {
     const alunoSelecionado = await aluno.aluno.findByPk(req.params.id,
         { include: {model: professor.professor} }

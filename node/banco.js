@@ -10,5 +10,4 @@ const conexao = new sequelize(
         host:process.env.DB_HOST
     }
 )
-
 module.exports = { conexao }
