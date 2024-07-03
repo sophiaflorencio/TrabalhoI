@@ -47,7 +47,8 @@ app.get("/professor/:id",async function(req, res) {
 })
 app.get("/professor/nome/:nome",async function(req, res) {
     const resultado = await professor.professor.findAll({
-        where:{ nome:req.params.nome }
+        where:{ nome:req.params.nome },
+        include: { model: aluno.aluno }
     })
     if( resultado == null ){
         res.status(404).send({})
@@ -58,7 +59,8 @@ app.get("/professor/nome/:nome",async function(req, res) {
 
 app.get("/aluno/nome/:nome",async function(req, res) {
     const resultado = await aluno.aluno.findAll({
-        where:{ nome:req.params.nome }
+        where:{ nome:req.params.nome },
+         include: { model: professor.professor } 
     })
     if( resultado == null ){
         res.status(404).send({})
