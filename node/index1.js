@@ -78,7 +78,9 @@ app.post("/aluno/",async function(req,res){
 
 app.put("/professor/:id",async function(req,res){
     const resultado = await professor.professor.update({
-        nome:req.body.nome
+        nome:req.body.nome,
+        idade:req.body.idade,
+        formacao:req.body.formacao
         
     },{
         where:{id: req.params.id}
