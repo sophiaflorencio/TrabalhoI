@@ -45,6 +45,16 @@ app.get("/professor/:id",async function(req, res) {
         res.send(professorSelecionado);
     } 
 })
+app.get("/professor/nome/:nome",async function(req, res) {
+    const resultado = await professor.professor.findAll({
+        where:{ nome:req.params.nome }
+    })
+    if( resultado == null ){
+        res.status(404).send({})
+    }else{
+        res.send(resultado);
+    }
+})
 
 app.get("/aluno/:id",async function(req, res) {
     const alunoSelecionado = await aluno.aluno.findByPk(req.params.id,
@@ -94,7 +104,7 @@ app.put("/professor/:id",async function(req,res){
 
 app.put("/aluno/:id",async function(req,res){
     const resultado = await aluno.aluno.update({
-        nome:req.body.nome,
+                nome:req.body.nome,
         idade:req.body.idade,
         serie:req.body.serie,
         professorId:req.body.professorId
