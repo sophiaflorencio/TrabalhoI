@@ -47,13 +47,13 @@ app.get("/professor/:id",async function(req, res) {
 })
 
 app.get("/aluno/:id",async function(req, res) {
-    const alunoSelecionado = await alunos.alunos.findByPk(req.params.id,
-        { include: {model: professores.professores } }
+    const alunoSelecionado = await aluno.aluno.findByPk(req.params.id,
+        { include: {model: professor.professor} }
     )
     if( alunoSelecionado == null ){
         res.status(404).send({})
     }else{
-        res.send(aluno);
+        res.send(alunoSelecionado);
     } 
 })
 

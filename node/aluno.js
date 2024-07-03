@@ -25,7 +25,11 @@ var aluno = banco.conexao.define(
         serie:{
             type:sequelize.STRING,
             allowNull:false
-        }
+        }, 
+        professorId:{
+            type:sequelize.INTEGER.UNSIGNED,
+            allowNull:false
+        },
     },
     { timestamps: false }
 )
