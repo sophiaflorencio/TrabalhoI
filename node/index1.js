@@ -48,7 +48,7 @@ app.get("/professor/:id",async function(req, res) {
 app.get("/professor/nome/:nome",async function(req, res) {
     const resultado = await professor.professor.findAll({
         where:{ nome:req.params.nome },
-        include: { model: aluno.aluno } 
+        include: { model: aluno.aluno }
     })
     if( resultado == null ){
         res.status(404).send({})
