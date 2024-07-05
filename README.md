@@ -2,7 +2,7 @@
 
 - Primeiro vamos adicionar um aluno e um professor no banco de dados
   
-  *Para isso primeiro temos que adicionar um corpor em formato JSON:
+  *Para isso primeiro temos que adicionar um corpo em formato JSON:
   
    ![image](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/1545adc6-5fbb-49f3-8db8-99494151787b)
 
@@ -19,7 +19,7 @@
 
 - Agora podemos fazer o get dos alunos e professores
   - get professor:
-    - sem parametro:
+    - sem parâmetro:
       ![get-professor-semparametro](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/95a81d0f-57f0-41e1-9f6a-a425193cfbd7)
        Assim recebemos todos os professores
 
@@ -28,11 +28,11 @@
        Assim recebemos apenas o professor desejado e todos os alunos relacionados a ele
       
    - get aluno:
-      - sem parametro:
+      - sem parâmetro:
         ![image](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/3f497450-8e5c-432b-bf01-32b5df9ba3e6)
         Assim recebemos todos os alunos cadastrados
 
-      - com parametro:
+      - com parâmetro:
         ![image](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/970d852d-794b-413f-be04-b96b32e189f0)
         Podemos receber um aluno específico adicionando "/nome/_nomedoaluno_", assim também recebemos o professor relacionado com esse aluno.
 
