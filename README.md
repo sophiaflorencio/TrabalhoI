@@ -1,4 +1,4 @@
-# Como realizar as requisiçoes HTTP:
+# Como realizar as requisições HTTP:
 
 - Primiero vamos adicionar um aluno e um professor no banco de dados
   - Adicionando professor:
@@ -19,6 +19,6 @@
       ![get-professor-semparametro](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/95a81d0f-57f0-41e1-9f6a-a425193cfbd7)
        Assim recebemos todos os professores
 
-    - com parametro:
+    - com parâmetro:
       ![get-professor-comparametro](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/aabe2abc-dd6d-47af-9651-ee93cb7a3187)
        Assim recebemos apenas o professor desejado e todos os alunos relacionados a ele 
