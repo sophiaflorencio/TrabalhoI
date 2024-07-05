@@ -21,4 +21,4 @@
 
     - com parâmetro:
       ![get-professor-comparametro](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/aabe2abc-dd6d-47af-9651-ee93cb7a3187)
-       Assim recebemos apenas o professor desejado e todos os alunos relacionados a ele 
+       Assim recebemos apenas o professor desejado e todos os alunos relacionados a ele
