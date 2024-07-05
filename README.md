@@ -1,6 +1,6 @@
 # Como realizar as requisições HTTP:
 
-- Primiero vamos adicionar um aluno e um professor no banco de dados
+- Primeiro vamos adicionar um aluno e um professor no banco de dados
   - Adicionando professor:
     
     ![post-professor](https://github.com/sophiaflorencio/TrabalhoI/assets/160235369/838a87b4-cf7c-4a3f-b3bf-ddd546f99d1b)
